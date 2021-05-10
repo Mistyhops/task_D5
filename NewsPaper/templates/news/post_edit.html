@@ -1,0 +1,19 @@
+{% extends 'default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}Редактирование новости{% endblock title %}
+
+{% block content %}
+
+<h3>Редактировать новость</h3>
+<h1>{{ specificnews.header|censor }}</h1>
+<h3>{{ specificnews.time|date:'d-M-Y H:m' }}</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Редактировать новость">
+</form>
+
+{% endblock content %}

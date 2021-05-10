@@ -1,0 +1,21 @@
+{% extends 'default.html' %}
+
+{% block content %}
+
+<h2>Страница авторизованного пользователя</h2>
+
+
+<p style="text-align: left; font-size: 1.5em">Ваш логин: "{{ request.user.username }}"</p>
+
+<p style="text-align: left; font-size: 1.5em">Фамилия: {{ request.user.last_name }}</p>
+
+<p style="text-align: left; font-size: 1.5em">Имя: {{ request.user.first_name }}</p>
+
+
+{% if not is_author %}
+<p style="text-align: left"><button><a href="{% url 'become_author' %}">Хочу стать автором</a></button></p>
+{% endif %}
+
+<button><a href="{% url 'logout' %}">Выйти</a></button>
+
+{% endblock %}

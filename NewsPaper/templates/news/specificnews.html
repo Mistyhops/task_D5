@@ -1,0 +1,17 @@
+{% extends 'default.html' %}
+
+{% load custom_filters %}
+
+
+{% block title %}
+{{ specificnews.header }}
+{% endblock title %}
+
+{% block content %}
+<h1>{{ specificnews.header|censor }}</h1>
+<h3>{{ specificnews.time|date:'d-M-Y H:m' }}</h3>
+<a href="edit/"><u>Редактировать</u></a>
+<a href="delete/"><u>Удалить</u></a>
+<hr>
+<h8>{{ specificnews.text|censor }}</h8>
+{% endblock content %}
